@@ -11,6 +11,7 @@ moment().format();
 
 //spotify keys
 var spotify = new Spotify(keys.spotify);
+var omdbKey = keys.omdb.api_key;
 
 //variable for input
 var command = process.argv[2];
@@ -33,6 +34,15 @@ function processCommands(command, commandParam){
 }
 //Do what it says reads text from random.txt file, command is ran
 var doWhatItSays = function() {
+	fs.readFile("random.txt", "utf8", function (err, data) {
+			if (err) throw err;
+					var randomText = data.split(",");
 
-
+			if (randomText.length == 2) {
+					ask(randomText[0], randomText[1]);
+			}
+			else if (randomText.length == 1) {
+					ask(randomText[0]);
+			}
+	});
 }
