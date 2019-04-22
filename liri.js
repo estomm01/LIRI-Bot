@@ -16,6 +16,7 @@ var omdbKey = keys.omdb.api_key;
 //variable for input
 var command = process.argv[2];
 var input = process.argv[3];
+
 //This function processes the input commands
 function processCommands(command, commandParam){
 
@@ -25,12 +26,37 @@ function processCommands(command, commandParam){
     case 'spotify-this-song':
 		//If user has not specified a song , use default
 		if(commandParam === undefined){
-			commandParam = defaultSong;
+			commandParam = "The Sing Ace of Base";
 		}
     spotifyThis(commandParam); break;
 
-    default:
-		console.log("Invalid command. Please type any of the following commnds: spotify-this-song");
+		spotify.search({ type: 'track', query: commandParam }, function (err, data) {
+			if (err) {
+					return console.log('Error occurred: ' + err);
+			}
+			else {
+					for (i = 0; i < data.tracks.items.length; i++){
+
+							var musicQuery = data.tracks.items[i];
+							// console.log("===============================");
+							 // * Artist(s)
+							console.log("Artist" + musicQuery.artists[0].name);
+							//The song's name
+							console.log( "name" + musicQuery.name);
+							// preview link of the song from Spotify
+							console.log("preview URL" + musicQuery.preview_url);
+							//The album that the song is from
+							console.log("Album" + musicQuery.album.name);
+							console.log("-----------------");
+							};
+						};
+				});
+
+	function omdb(movie){
+
+		var queryUrl = "http://www.omdbapi.com/?t" +
+
+
 }
 //Do what it says reads text from random.txt file, command is ran
 var doWhatItSays = function() {
