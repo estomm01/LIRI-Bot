@@ -33,3 +33,6 @@ function processCommands(command, commandParam){
 }
 //Do what it says reads text from random.txt file, command is ran
 var doWhatItSays = function() {
+
+
+}
