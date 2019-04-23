@@ -15,6 +15,5 @@ LIRI is a Language Interpretation and Recognition Interface. LIRI will be a comm
 * Axios-OMDB API
 * Moment 
 
-![image](https://drive.google.com/uc?export=view&id=1913oZeBZPBNiUuk8gu3ZSbLBA2l_VQtG)
 
 ![image](https://drive.google.com/uc?export=view&id=1bS8zcpPszbSoF1hgnCGlu9xrZcZ2Jo2e)
