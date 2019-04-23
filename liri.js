@@ -1,6 +1,6 @@
 require("dotenv").config();
  let keys = require("./keys.js");
- let inquirer = require("inquirer");
+//  let inquirer = require("inquirer");
  let Spotify = require('node-spotify-api');
  let spotify = new Spotify(keys.spotify);
  let axios = require("axios");
@@ -29,12 +29,12 @@ var input = process.argv[3];
 //console.log(commandParam);
 
 switch (command) {
-	case 'spotify-this-song':
+	case ('spotify-this-song'):
 		//If user has not specified a song , use default
-		if (commandParam === undefined) {
-			commandParam = "The Sing Ace of Base";
+		if (song === undefined || null) {
+			song = "The Sign Ace of Base";
 		}
-	 spotifyThis(commandParam); break;
+	 spotifyThis(song); break;
 	default:
 		break;
 };
@@ -49,7 +49,7 @@ function spotifyThis(song) {
 
 				var musicQuery = data.tracks.items[i];
 				// console.log("===============================");
-				// * Artist(s)
+				// Artist(s)
 				console.log("Artist" + musicQuery.artists[0].name);
 				//The song's name
 				console.log("name" + musicQuery.name);
