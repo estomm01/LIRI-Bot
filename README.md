@@ -9,8 +9,8 @@ LIRI is a Language Interpretation and Recognition Interface. LIRI will be a comm
 * NodeJS
 * JavaScript
 * Spotify API
-* Twitter API
-* OMDB API
 * NPM spotify-web-api-node
 * NPM dotenv
 * NPM request
+* Axios-OMDB API
+* Moment 
