@@ -16,4 +16,4 @@ LIRI is a Language Interpretation and Recognition Interface. LIRI will be a comm
 * Moment 
 
 
-![GitHub Logo](/images/node1.png)
+![GitHub Logo](/downloads/node1.png)
