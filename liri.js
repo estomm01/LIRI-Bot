@@ -23,28 +23,38 @@ require("dotenv").config();
 
 //variable for input
 var command = process.argv[2];
-var input = process.argv[3];
+var secondCommand = process.argv[3];
 
 
 //console.log(commandParam);
 
 switch (command) {
-	case ('spotify-this-song'):
+	case 'spotify-this-song':
 		//If user has not specified a song , use default
-		if (song === undefined || null) {
-			song = "The Sign Ace of Base";
-		}
-	 spotifyThis(song); break;
+		// if (input === undefined || null)
+	     if(secondCommand)	{
+				 spotifyThisSong(secondCommand);
+			 } else{
+				 spotifyThisSong("The Sign Ace of Base");
+			 }
+			// spotifyThisSong = "The Sign Ace of Base";
+
+	  // spotifyThis(song); break;
+	break;
+	case 'movieThis':
+		console.log('movieThis');
+		break;
 	default:
+		console.log('Try again');
 		break;
 };
 
-function spotifyThis(song) {
+function spotifyThisSong(song) {
 	spotify.search({ type: 'track', query: song }, function (err, data) {
 		if (err) {
 			return console.log('Error occurred: ' + err);
 		}
-		else {
+		else
 			for (var i = 0; i < data.tracks.items.length; i++) {
 
 				var musicQuery = data.tracks.items[i];
@@ -59,7 +69,6 @@ function spotifyThis(song) {
 				console.log("Album" + musicQuery.album.name);
 				console.log("-----------------");
 			};
-		};
 	});
 
 	// function omdb(movie){
