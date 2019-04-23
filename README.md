@@ -14,6 +14,7 @@ LIRI is a Language Interpretation and Recognition Interface. LIRI will be a comm
 * NPM request
 * Axios-OMDB API
 * Moment 
-https://estomm01.github.io/LIRI-Bot/.
+
+https://estomm01.github.io/LIRI-Bot/
 
 ![image](https://drive.google.com/uc?export=view&id=1bS8zcpPszbSoF1hgnCGlu9xrZcZ2Jo2e)
