@@ -6,6 +6,6 @@ exports.spotify = {
 };
 
 
-// exports.omdb = {
-//   api_key: process.env.OMDB_API_KEY
-// };
+ exports.omdb = {
+  api_key: process.env.OMDB_API_KEY
+};
