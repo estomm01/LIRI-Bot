@@ -1,11 +1,11 @@
 require("dotenv").config();
- let keys = require("./keys.js");
+let keys = require("./keys.js");
 //  let inquirer = require("inquirer");
- let Spotify = require('node-spotify-api');
- let spotify = new Spotify(keys.spotify);
- let axios = require("axios");
- let moment = require('moment');
-
+let Spotify = require('node-spotify-api');
+let spotify = new Spotify(keys.spotify);
+let axios = require("axios");
+let omdbKey = keys.omdb.api_key;
+let moment = require('moment');
 // let Spotify = require('node-spotify-api');
 // let request = require('request');
 // let fs = require('fs');
@@ -14,39 +14,43 @@ require("dotenv").config();
 // console.log(keys);
 
 // //moment js
-// let moment = require('moment');
-
-
-// //spotify keys
-// var spotify = new Spotify(keys.spotify);
-// var omdbKey = keys.omdb.api_key;
-
-//variable for input
 var command = process.argv[2];
 var secondCommand = process.argv[3];
-
-
 //console.log(commandParam);
-
 switch (command) {
+
+	case 'concert-this':
+		if (secondCommand) {
+			concertThis(secondCommand);
+		} else {
+			concertThis("Cher");
+		}
+		break;
+
 	case 'spotify-this-song':
 		//If user has not specified a song , use default
 		// if (input === undefined || null)
-	     if(secondCommand)	{
-				 spotifyThisSong(secondCommand);
-			 } else{
-				 spotifyThisSong("The Sign Ace of Base");
-			 }
-			// spotifyThisSong = "The Sign Ace of Base";
+		if (secondCommand) {
+			spotifyThisSong(secondCommand);
+		} else {
+			spotifyThisSong("The Sign Ace of Base");
+		}
+		break;
 
-	  // spotifyThis(song); break;
-	break;
-	case 'movieThis':
-		console.log('movieThis');
+	case 'movie-this':
+		if (secondCommand) {
+			movieThis(secondCommand);
+		} else {
+			movieThis("Mr. Nobody");
+		}
+		break;
+
+	case 'do-what-it-says':
+		doWhatItSays();
 		break;
 	default:
-		console.log('Try again');
 		break;
+		console.log('Try again');
 };
 
 function spotifyThisSong(song) {
@@ -71,10 +75,33 @@ function spotifyThisSong(song) {
 			};
 	});
 
-	// function omdb(movie){
+};
 
-	// 	var queryUrl = "http://www.omdbapi.com/?t" +
-}
+function movieThis(movieQuery) {
+	var queryUrl = "http://www.omdbapi.com/?t=" + movieQuery + "&apikey=e97af0fa";
+	axios.get(queryUrl).then(function (results) {
+		//console.log(results.data.Year);
+	var movieData = results.data
+
+	console.log("Movie Title:" + movieData.Title);
+	console.log("Year the movie came out:"+ movieData.Year);
+
+	});
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 	var queryUrl = "http://www.omdbapi.com/?t" +
 //Do what it says reads text from random.txt file, command is ran
 var doWhatItSays = function () {
 	fs.readFile("random.txt", "utf8", function (err, data) {
