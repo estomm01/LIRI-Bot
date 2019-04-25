@@ -81,46 +81,58 @@ function movieThis(movieQuery) {
 	var queryUrl = "http://www.omdbapi.com/?t=" + movieQuery + "&apikey=e97af0fa";
 	axios.get(queryUrl).then(function (results) {
 		//console.log(results.data.Year);
-		if (err){
+		if (err) {
 			return console.log('Error occurred: ' + err);
 
-//console.log(results.data.Year);
-var movieData = results.data
+			//console.log(results.data.Year);
+			var movieData = results.data
 
-console.log("Movie Title:" + movieData.Title);
-console.log("Year the movie came out:"+ movieData.Year);
- console.log("IMDB Rating of the movie:" + movieData.Rating);
- console.log("Country where the movie was produced:" + movieData.Country);
- console.log("Language of the movie:" + movieData.Language);
- console.log("Plot of the movie:" + movieData.Plot);
- console.log("Actors in the movie:" + movieData.Actors);
+			console.log("Movie Title:" + movieData.Title);
+			console.log("Year the movie came out:" + movieData.Year);
+			console.log("IMDB Rating of the movie:" + movieData.Rating);
+			console.log("Country where the movie was produced:" + movieData.Country);
+			console.log("Language of the movie:" + movieData.Language);
+			console.log("Plot of the movie:" + movieData.Plot);
+			console.log("Actors in the movie:" + movieData.Actors);
 
-	 } else{
-				 console.log('Error occurred.')
-			 }
-			 if(movie === "Mr. Nobody"){
-				 console.log("-----------------------");
-				 console.log("If you haven't watched 'Mr. Nobody,' then you should: http://www.imdb.com/title/tt0485947/");
-				 console.log("It's on Netflix!");
-};
-});
-
-
-
-
-
-// 	var queryUrl = "http://www.omdbapi.com/?t" +
-//Do what it says reads text from random.txt file, command is ran
-var doWhatItSays = function () {
-	fs.readFile("random.txt", "utf8", function (err, data) {
-		if (err) throw err;
-		var randomText = data.split(",");
-
-		if (randomText.length == 2) {
-			ask(randomText[0], randomText[1]);
+		} else {
+			console.log('Error occurred.')
 		}
-		else if (randomText.length == 1) {
-			ask(randomText[0]);
-		}
+		if (movie === "Mr. Nobody") {
+			console.log("-----------------------");
+			console.log("If you haven't watched 'Mr. Nobody,' then you should: http://www.imdb.com/title/tt0485947/");
+			console.log("It's on Netflix!");
+		};
 	});
-}
+
+	function concertThis(concertQuery) {
+		var queryUrl = "http://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp"
+		axios.get(queryUrl).then(function (results) {
+
+			//console.log(results.data.Year);
+			var concertData = results.data
+
+			console.log("Name of Venue:" + concertData.Name);
+			console.log("Venue location:" + concertData.Location);
+			console.log("Date of the Event:" + concertData.Date);
+		};
+
+	});
+
+};
+
+			// 	var queryUrl = "http://www.omdbapi.com/?t" +
+			//Do what it says reads text from random.txt file, command is ran
+			var doWhatItSays = function () {
+				fs.readFile("random.txt", "utf8", function (err, data) {
+					if (err) throw err;
+					var randomText = data.split(",");
+
+					if (randomText.length == 2) {
+						ask(randomText[0], randomText[1]);
+					}
+					else if (randomText.length == 1) {
+						ask(randomText[0]);
+					}
+				});
+			}
