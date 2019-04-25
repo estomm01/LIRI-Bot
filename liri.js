@@ -12,8 +12,6 @@ let moment = require('moment');
 // let keys = require("./keys.js");
 // let dotenv = require("dotenv").config();
 // console.log(keys);
-
-// //moment js
 var command = process.argv[2];
 var secondCommand = process.argv[3];
 //console.log(commandParam);
@@ -105,8 +103,10 @@ function movieThis(movieQuery) {
 		};
 	});
 
+};
+
 	function concertThis(concertQuery) {
-		var queryUrl = "http://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp"
+		var queryUrl = "http://rest.bandsintown.com/artists/" + concertQuery + "/events?app_id=codingbootcamp"
 		axios.get(queryUrl).then(function (results) {
 
 			//console.log(results.data.Year);
@@ -119,7 +119,6 @@ function movieThis(movieQuery) {
 
 	});
 
-};
 
 			// 	var queryUrl = "http://www.omdbapi.com/?t" +
 			//Do what it says reads text from random.txt file, command is ran
