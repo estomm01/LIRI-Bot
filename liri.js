@@ -16,7 +16,6 @@ var secondCommand = process.argv[3];
 for (var i = 4; i < process.argv.length; i++) {
 	secondCommand += '+' + process.argv[i];
 }
-
 switch (command) {
 
 	case 'concert-this':
@@ -115,13 +114,13 @@ function movieThis(movieQuery) {
 		 // console.log();
 
 			var concertData = response.data[0]
-			var momentData = moment(concertData.Date).format('MM/DD/YYYY')
+			var momentData = moment(concertData.datetime).format('MM/DD/YYYY')
 
 		//console.log(concertData)
 
 	    console.log("Name of Venue:" + concertData.venue.name);
 	  	console.log("Venue location:" + concertData.venue.country);
-	  	console.log("Date of the Event:" + concertData.datetime);
+	  	console.log("Date of the Event:" + momentData);
 
 		 });
 	};
